@@ -1,0 +1,64 @@
+﻿@model IEnumerable<JewelryStore.Models.Products>
+
+@{
+    ViewData["Title"] = "Товары";
+}
+
+<h1>Товары</h1>
+
+<p style="font-size: large">
+    <a asp-action="Create">Создать новый товар</a>
+</p>
+<table class="table" style="font-size: large; text-align: center">
+    <thead>
+        <tr>
+            <th>
+                Изображение
+            </th>
+            <th>
+                Название
+            </th>
+            <th>
+                Вид товара
+            </th>
+            <th>
+                Стоимость
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+                <tr>
+                    <td>
+                    @{
+                        //string path = @"C:\Users\USR\Documents\Education\УПМ23\JewelryStore\JewelryStore\wwwroot\Resources\" + item.image;
+                        string path = @"S:\USERS\50-02\Рыбалко Михаил Алексеевич\УПМ23\JewelryStoreBackUp\JewelryStore\JewelryStore\wwwroot\Resources\" + item.image;
+                        if (File.Exists(path))
+                        {
+                            <img width="75px" src="~/Resources/@item.image" class="products-img">
+                        }
+                        else
+                        {
+                            <img width="75px" src="~/Resources/no_image1.png" class="products-img">
+                        }
+                    }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        @item.Product_Types.name
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.price) руб.
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Сведения</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>

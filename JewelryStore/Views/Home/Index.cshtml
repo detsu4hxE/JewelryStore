@@ -1,0 +1,45 @@
+﻿ @model IEnumerable<JewelryStore.Models.Products>
+
+@{
+    ViewData["Title"] = "Главная страница";
+}
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<div class="text-center">
+    <h1 class="display-4">Добро пожаловать</h1>
+    <p>Посмотреть все товары можно на вкладке "Товары"</p>
+</div>
+
+@{
+    int a = 0;
+}
+<div class="inlineproducts">
+ @foreach (var item in Model) {
+     if(a < 5)
+     {
+    <div class="product-wrap">
+        <div class="product-item">
+            @{
+                //string path = @"C:\Users\USR\Documents\Education\УПМ23\JewelryStore\JewelryStore\wwwroot\Resources\" + item.image;
+                string path = @"S:\USERS\50-02\Рыбалко Михаил Алексеевич\УПМ23\JewelryStoreBackUp\JewelryStore\JewelryStore\wwwroot\Resources\" + item.image;
+                if (File.Exists(path))
+                {
+                    <img width="75px" src="~/Resources/@item.image" class="products-img">
+                }
+                else
+                {
+                    <img width="75px" src="~/Resources/no_image1.png" class="products-img">
+                }
+            }
+            <div class="product-buttons">
+                <a class="button" asp-action="Details" asp-route-id="@item.Id">Подробнее</a>
+            </div>
+            <div class="product-title">
+                <a href="">@item.name</a>
+                <span class="product-price">₽ @item.price</span>
+            </div>
+        </div>
+    </div>
+    a++;
+     }
+}
+</div>

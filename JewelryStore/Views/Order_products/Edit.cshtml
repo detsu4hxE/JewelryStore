@@ -1,0 +1,49 @@
+﻿@model JewelryStore.Models.Order_products
+
+@{
+    ViewData["Title"] = "Редактирование товара в заказе";
+}
+
+<h1>Редактировать товар в заказе</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4" style="font-size: large">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="OrdersID" class="control-label">Номер заказа</label>
+                <select asp-for="OrdersID" class="form-control" asp-items="ViewBag.OrdersID"></select>
+                <span asp-validation-for="OrdersID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductsID" class="control-label">Товар</label>
+                <select asp-for="ProductsID" class="form-control" asp-items="ViewBag.ProductsID"></select>
+                <span asp-validation-for="ProductsID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="amount" class="control-label">Количество</label>
+                <input asp-for="amount" class="form-control" />
+                <span asp-validation-for="amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="price" class="control-label">Стоимость</label>
+                <input asp-for="price" class="form-control" />
+                <span asp-validation-for="price" class="text-danger"></span>
+            </div>
+            <p></p>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+            <p></p>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Сведения о товаре в заказе</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

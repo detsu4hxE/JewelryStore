@@ -1,0 +1,46 @@
+﻿@model JewelryStore.Models.Order_products
+
+@{
+    ViewData["Title"] = "Добавление товара в заказ";
+}
+
+<h1>Добавить товар в заказ</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4" style="font-size: large">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="OrdersID" class="control-label">Номер заказа</label>
+                <select asp-for="OrdersID" class ="form-control" asp-items="ViewBag.OrdersID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductsID" class="control-label">Товар</label>
+                <select asp-for="ProductsID" class ="form-control" asp-items="ViewBag.ProductsID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="amount" class="control-label">Количество</label>
+                <input asp-for="amount" class="form-control" />
+                <span asp-validation-for="amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="price" class="control-label">Стоимость</label>
+                <input asp-for="price" class="form-control" />
+                <span asp-validation-for="price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <p></p>
+                <input type="submit" value="Создать" class="btn btn-primary" />
+                <p></p>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Вернуться к списку</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

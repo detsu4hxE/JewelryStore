@@ -1,0 +1,232 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #E0FFFF;
+    font-family: "Comic Sans MS", sans-serif;
+}
+
+.login-page {
+    width: 360px;
+    padding: 8% 0 0;
+    margin: auto;
+}
+
+.form1 {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 15px 45px 45px 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+    .form1 input {
+        font-family: "Comic Sans MS", sans-serif;
+        outline: 0;
+        background: #f2f2f2;
+        width: 100%;
+        border: 0;
+        margin: 0 0 15px;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+
+    .form1 button {
+        font-family: "Comic Sans MS", sans-serif;
+        text-transform: uppercase;
+        outline: 0;
+        background: #D0FFFF;
+        width: 100%;
+        border: 0;
+        padding: 15px;
+        color: black;
+        font-size: 14px;
+        -webkit-transition: all 0.3 ease;
+        transition: all 0.3 ease;
+        cursor: pointer;
+    }
+
+        .form1 button:hover, .form1 button:active, .form1 button:focus {
+            background: #B0FFFF;
+        }
+
+    .form1 .message {
+        margin: 15px 0 0;
+        color: #b3b3b3;
+        font-size: 12px;
+    }
+
+        .form1 .message a {
+            color: #00b7eb;
+            text-decoration: none;
+        }
+
+    .form1 .register-form {
+        display: none;
+    }
+
+.body1 {
+    background: #E0FFFF; /* fallback for old browsers */
+    font-family: "Comic Sans MS", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    background-color: #E0FFFF;
+}
+
+.footer {
+    background-color: white;
+}
+
+.container2 {
+    background-color: white;
+    text-align: center;
+}
+.phone1 {
+    text-decoration: none;
+    color: black;
+}
+.phone1:hover{
+    color: black
+}
+.title1 {
+    font-size: 32pt;
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: -5%;
+}
+/*HomeIndex*/
+* {
+    box-sizing: border-box;
+}
+
+.product-wrap {
+    width: 300px;
+    margin: 0 auto;
+    background-color: #E0FFFF;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.product-item {
+    position: relative;
+    overflow: hidden;
+    margin: 5px;
+}
+
+.product-wrap img {
+    display: block;
+    width: 100%;
+}
+
+.product-buttons {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .8);
+    opacity: 0;
+    transition: .3s ease-in-out;
+}
+
+.button {
+    text-decoration: none;
+    color: #c0a97a;
+    font-size: 12px;
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 2px solid #c0a97a;
+    transform: translate(-50%, -50%) scale(0);
+    transition: .3s ease-in-out;
+}
+
+    .button:before {
+        content: "\f07a";
+        margin-right: 10px;
+    }
+
+.product-item:hover .product-buttons {
+    opacity: 1;
+}
+
+.product-item:hover .button {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.button:hover {
+    background: black;
+}
+
+.product-title {
+    color: #5e5e5e;
+}
+
+    .product-title a {
+        text-decoration: none;
+        color: #2e2e2e;
+        font-weight: 600;
+        margin: 15px 0 5px;
+        padding-bottom: 7px;
+        display: block;
+        position: relative;
+        transition: .3s ease-in-out;
+    }
+
+        .product-title a:after {
+            content: "";
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: #2e2e2e;
+            left: 50%;
+            margin-left: -20px;
+            bottom: 0;
+            transition: .3s ease-in-out;
+        }
+
+        .product-title a:hover {
+            color: #c0a97a;
+        }
+
+    .product-title:hover a:after {
+        background: #c0a97a;
+    }
+
+.product-price {
+    font-size: 20px;
+    color: #c0a97a;
+    font-weight: 700;
+}
+.inlineproducts {
+    display: flex;
+    flex-direction: row;
+}
+.products-img {
+    border: 1px solid black;
+}

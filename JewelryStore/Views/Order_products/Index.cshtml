@@ -1,0 +1,53 @@
+﻿@model IEnumerable<JewelryStore.Models.Order_products>
+
+@{
+    ViewData["Title"] = "Товары в заказах";
+}
+
+<h1>Товары в заказах</h1>
+
+<p>
+    <a asp-action="Create" style="font-size: large">Создать новый товар в заказе</a>
+</p>
+<table class="table" style="font-size: large; text-align: center">
+    <thead>
+        <tr>
+            <th>
+                Номер заказа
+            </th>
+            <th>
+                Товар
+            </th>
+            <th>
+                Количество
+            </th>
+            <th>
+                Стоимость
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Orders.Id)
+            </td>
+            <td>
+                @item.Products.name
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.amount) шт.
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price) руб.
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Сведения</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

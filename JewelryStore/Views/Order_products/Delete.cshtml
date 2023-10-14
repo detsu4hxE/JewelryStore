@@ -1,0 +1,44 @@
+﻿@model JewelryStore.Models.Order_products
+
+@{
+    ViewData["Title"] = "Удаление товара из заказа";
+}
+
+<h1>Удалить товар из заказа</h1>
+
+<h3>Вы уверены, что хотите удалить этот товар из заказа?</h3>
+<div style="font-size: large">
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Номер заказа
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Orders.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            Товар
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.Products.name
+        </dd>
+        <dt class = "col-sm-2">
+            Количество
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.amount) шт.
+        </dd>
+        <dt class = "col-sm-2">
+            Стоимость
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.price) руб.
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-action="Index">Вернуться к списку</a>
+    </form>
+</div>

@@ -1,0 +1,57 @@
+﻿@model JewelryStore.Models.Users;
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="shortcut icon" href="~/Resources/icon.ico" type="image/x-icon" />
+    <title>Вход</title>
+</head>
+<body class="body1">
+<h1 class="title1">Магазин ювелирных украшений</h1>
+<div class="login-page">    
+    <div class="form1">
+        <form class="register-form" asp-controller="Access" asp-action="Registration" method="post">
+            <h1>Регистрация</h1>
+            <input type="text" placeholder="логин *" asp-for="login"/>
+            <input type="password" placeholder="пароль *" asp-for="password"/>
+            <input type="text" placeholder="фамилия *" asp-for="surname"/>
+            <input type="text" placeholder="имя *" asp-for="firstname"/>
+            <input type="text" placeholder="отчество" asp-for="patronymic"/>
+            <input type="email" placeholder="электронная почта *" asp-for="email"/>
+            <input type="text" placeholder="номер телефона" asp-for="phone"/>
+            <p style="color:red;">Нажимая на кнопку "Создать" Вы принимаете условия обработки персональных данных</p>
+            <button>Создать</button>
+            @if (ViewData["ValidateMessage"] != null)
+            {
+                <br />
+                <br />
+                <label>@ViewData["ValidateMessage"]</label>
+            }
+            <p class="message">Уже зарегистированы? <a href="#">Авторизуйтесь</a></p>
+            </form>
+        <form class="login-form" asp-controller="Access" asp-action="Login" method="post">
+            <h1>Авторизация</h1>
+            <input type="text" placeholder="логин" asp-for="login"/>
+            <input type="password" placeholder="пароль" asp-for="password"/>
+            <button>Войти</button>
+            @if (ViewData["ValidateMessage"] != null)
+            {
+                <br />
+                <br />
+                <label>@ViewData["ValidateMessage"]</label>
+            }
+            <p class="message">Не зарегистрированы? <a href="#">Создайте аккаунт</a></p>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>

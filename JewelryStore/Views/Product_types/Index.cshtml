@@ -1,0 +1,35 @@
+﻿@model IEnumerable<JewelryStore.Models.Product_types>
+
+@{
+    ViewData["Title"] = "Виды товара";
+}
+
+<h1>Виды товара</h1>
+
+<p style="font-size: large">
+    <a asp-action="Create">Создать новый вид товара</a>
+</p>
+<table class="table" style="font-size: large; text-align: center">
+    <thead>
+        <tr>
+            <th>
+                Название
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Сведения</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

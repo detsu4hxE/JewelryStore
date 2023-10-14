@@ -1,0 +1,41 @@
+﻿@model JewelryStore.Models.Order_products
+
+@{
+    ViewData["Title"] = "Сведения о товаре в заказе";
+}
+
+<h1>Сведения о товаре в заказе</h1>
+
+<div style="font-size: large">
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Номер заказа
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Orders.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            Товар
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.Products.name
+        </dd>
+        <dt class = "col-sm-2">
+            Количесто
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.amount) шт.
+        </dd>
+        <dt class = "col-sm-2">
+            Стоимость
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.price) руб.
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Редактировать</a> |
+    <a asp-action="Index">Вернуться к списку</a>
+</div>

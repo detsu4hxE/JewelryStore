@@ -1,0 +1,56 @@
+﻿@model JewelryStore.Models.Products
+
+@{
+    ViewData["Title"] = "Создание товара";
+}
+
+<h1>Создать товар</h1>
+<hr />
+<div class="row" >
+    <div class="col-md-4" style="font-size: large">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="name" class="control-label">Название</label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product_typesID" class="control-label">Вид товара</label>
+                <select asp-for="Product_typesID" class ="form-control" asp-items="ViewBag.Product_typesID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaterialsID" class="control-label">Материал</label>
+                <select asp-for="MaterialsID" class ="form-control" asp-items="ViewBag.MaterialsID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="price" class="control-label">Стоимость</label>
+                <input asp-for="price" class="form-control" />
+                <span asp-validation-for="price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="weight" class="control-label">Масса</label>
+                <input asp-for="weight" class="form-control" />
+                <span asp-validation-for="weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="image" class="control-label">Изображение</label>
+                <input asp-for="image" class="form-control" />
+                <span asp-validation-for="image" class="text-danger"></span>
+            </div>
+            <p></p>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-primary" />
+            </div>
+            <p></p>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Вернуться к списку</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
